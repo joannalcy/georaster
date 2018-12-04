@@ -8,7 +8,6 @@ onmessage = e => {
   // console.error("inside worker on message started with", e);
   const data = e.data;
   parseData(data).then(result => {
-    console.log('posting from web wroker:', result);
     if (result._data instanceof ArrayBuffer) {
       postMessage(result, [result._data]);
     } else {
