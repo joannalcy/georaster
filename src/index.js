@@ -45,7 +45,7 @@ class GeoRaster {
         if (this._web_worker_is_available) {
           const worker = new Worker();
           worker.onmessage = (e) => {
-            console.log('main thread received message:', e);
+            if (debug) console.log('main thread received message:', e);
             const data = e.data;
             for (const key in data) {
               this[key] = data[key];
